@@ -81,8 +81,8 @@ shutdown.
 
 If you can contribute to improve this module, please send a pull request.
 
-## Release Notes/Contributors/Etc
+## Release Notes
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+### `0.1.0`
+
+Initial release, with support for a single UPS on a single system.
