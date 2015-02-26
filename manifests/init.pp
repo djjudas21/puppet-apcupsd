@@ -57,15 +57,15 @@ class apcupsd (
     fail('$upstype must be one of apcsmart, usb, net, snmp, dumb, pcnet')
   }
 
-  unless isinteger($onbatterydelay) {
+  unless is_integer($onbatterydelay) {
     fail('$onbatterydelay must be an integer')
   }
 
-  unless isinteger($batterylevel) {
+  unless is_integer($batterylevel) {
     fail('$batterylevel must be an integer')
   }
 
-  unless isinteger($minutes) {
+  unless is_integer($minutes) {
     fail('$minutes must be an integer')
   }
 
