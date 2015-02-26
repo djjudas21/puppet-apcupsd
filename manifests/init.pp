@@ -35,7 +35,16 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class apcupsd {
+class apcupsd (
+  $upsname,
+  $upscable = 'usb',
+  $upstype = 'usb',
+  $device = undef,
+  $onbatterydelay = 6,
+  $batterylevel = 5,
+  $minutes = 3,
+  $netserver = true,
+) {
 
   # Install package
   package { 'apcupsd':
