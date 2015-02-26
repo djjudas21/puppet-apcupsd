@@ -36,7 +36,7 @@ appropriate port or address. Consult the table for example values for `$device`.
 Default: `undef`.
 
 `$upstype` | `$device`
---------------------
+-----------|-----------
 `apcsmart` | `/dev/ttyS0`
 `usb`      | `<BLANK>`
 `net`      | `hostname:port`
