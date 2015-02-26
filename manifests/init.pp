@@ -89,8 +89,9 @@ class apcupsd (
 
   # Start service
   service { 'apcupsd':
-    name    => $apcupsd::service,
     ensure  => running,
+    enable  => true,
+    name    => $apcupsd::service,
     require => Package['apcupsd'],
   }
 }
