@@ -44,7 +44,7 @@ class apcupsd (
   $batterylevel = 5,
   $minutes = 3,
   $netserver = 'on',
-) {
+) inherits apcupsd::params {
 
   # Validate inputs
   validate_slength($upsname, 8)
