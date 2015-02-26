@@ -46,6 +46,33 @@ class apcupsd (
   $netserver = 'on',
 ) {
 
+  # Validate inputs
+  validate_slength($upsname, 8)
+
+  unless $upscable in ['simple', 'smart', 'ether', 'usb'] {
+    fail('$upscable must be one of simple, smart, ether, usb')
+  }
+
+  unless $upstype in ['apcsmart', 'usb', 'net', 'snmp', 'dumb', 'pcnet'] {
+    fail('$upstype must be one of apcsmart, usb, net, snmp, dumb, pcnet')
+  }
+
+  unless isinteger($onbatterydelay) {
+    fail('$onbatterydelay must be an integer')
+  }
+
+  unless isinteger($batterylevel) {
+    fail('$batterylevel must be an integer')
+  }
+
+  unless isinteger($minutes) {
+    fail('$minutes must be an integer')
+  }
+
+  unless $netserver in ['on', 'off'] {
+    fail('$netserver must be one of on, off')
+  }
+
   # Install package
   package { 'apcupsd':
     ensure => present,
