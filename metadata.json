@@ -1,0 +1,17 @@
+{
+  "name": "jgazeley-apcupsd",
+  "version": "0.1.0",
+  "author": "jgazeley",
+  "summary": "Configure apcupsd software for APC UPS devices",
+  "license": "Apache 2.0",
+  "source": "https://github.com/djjudas21/puppet-apcupsd",
+  "project_page": "https://github.com/djjudas21/puppet-apcupsd",
+  "issues_url": "https://github.com/djjudas21/puppet-apcupsd/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
