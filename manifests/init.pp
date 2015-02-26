@@ -37,5 +37,23 @@
 #
 class apcupsd {
 
+  # Install package
+  package { 'apcupsd':
+    ensure => present,
+    name   => $package,
+  }
 
+  # Template config file
+  file { 'apcupsd.conf':
+    name => $config,
+    content => template(),
+    require => Package['apcupsd'],
+    notify  => Service['apcupsd'],
+  }
+
+  # Start service
+  service { 'apcupsd':
+    ensure  => running,
+    require => Package['apcupsd'],
+  }
 }
