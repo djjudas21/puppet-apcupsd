@@ -12,4 +12,11 @@ class apcupsd::params {
     'RedHat' => 'apcupsd',
     default  => 'apcupsd',
   }
+
+  # Config file
+  $config = $::osfamily ? {
+    'RedHat' => '/etc/apcupsd/apcupsd.conf',
+    default  => '/etc/apcupsd/apcupsd.conf',
+  }
+
 }
