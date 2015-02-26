@@ -65,7 +65,7 @@ system shutdown. Default: `3`.
 
 Enables the network information server. If netstatus is on, a network information
 server process will be started for serving the STATUS and EVENT data over the
-network (used by CGI programs). Default: `true`.
+network (used by CGI programs). Choose from: `on`, `off`. Default: `on`.
 
 ## Limitations
 

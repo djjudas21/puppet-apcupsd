@@ -43,7 +43,7 @@ class apcupsd (
   $onbatterydelay = 6,
   $batterylevel = 5,
   $minutes = 3,
-  $netserver = true,
+  $netserver = 'on',
 ) {
 
   # Install package
