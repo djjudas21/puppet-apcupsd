@@ -76,12 +76,12 @@ class apcupsd (
   # Install package
   package { 'apcupsd':
     ensure => present,
-    name   => $package,
+    name   => $apcupsd::package,
   }
 
   # Template config file
   file { 'apcupsd.conf':
-    name    => $config,
+    name    => $apcupsd::config,
     content => template('apcupsd/apcupsd.conf.erb'),
     require => Package['apcupsd'],
     notify  => Service['apcupsd'],
@@ -89,6 +89,7 @@ class apcupsd (
 
   # Start service
   service { 'apcupsd':
+    name    => $apcupsd::service,
     ensure  => running,
     require => Package['apcupsd'],
   }
