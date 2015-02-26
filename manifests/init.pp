@@ -45,8 +45,8 @@ class apcupsd {
 
   # Template config file
   file { 'apcupsd.conf':
-    name => $config,
-    content => template(),
+    name    => $config,
+    content => template('apcupsd/apcupsd.conf.erb'),
     require => Package['apcupsd'],
     notify  => Service['apcupsd'],
   }
