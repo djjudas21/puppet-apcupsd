@@ -37,13 +37,13 @@
 #
 class apcupsd (
   $upsname,
-  $upscable = 'usb',
-  $upstype = 'usb',
-  $device = undef,
+  $upscable       = 'usb',
+  $upstype        = 'usb',
+  $device         = undef,
   $onbatterydelay = 6,
-  $batterylevel = 5,
-  $minutes = 3,
-  $netserver = 'on',
+  $batterylevel   = 5,
+  $minutes        = 3,
+  $netserver      = 'on',
 ) inherits apcupsd::params {
 
   # Validate inputs
@@ -81,7 +81,7 @@ class apcupsd (
 
   # Template config file
   file { 'apcupsd.conf':
-    name    => $apcupsd::config,
+    path    => $apcupsd::config,
     content => template('apcupsd/apcupsd.conf.erb'),
     require => Package['apcupsd'],
     notify  => Service['apcupsd'],
