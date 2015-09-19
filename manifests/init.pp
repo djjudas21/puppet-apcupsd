@@ -44,6 +44,7 @@ class apcupsd (
   $batterylevel   = 5,
   $minutes        = 3,
   $netserver      = 'on',
+  $maildest       = $apcupsd::params::maildest,
 ) inherits apcupsd::params {
 
   # Validate inputs
@@ -85,6 +86,37 @@ class apcupsd (
     content => template('apcupsd/apcupsd.conf.erb'),
     require => Package['apcupsd'],
     notify  => Service['apcupsd'],
+  }
+
+  # Template for scripts
+  file { 'changeme':
+    path    => "${apcupsd::scriptdir}changeme",
+    content => template('apcupsd/changeme.erb'),
+    require => Package['apcupsd'],
+  }
+
+  file { 'commfailure':
+    path    => "${apcupsd::scriptdir}commfailure",
+    content => template('apcupsd/commfailure.erb'),
+    require => Package['apcupsd'],
+  }
+
+  file { 'commok':
+    path    => "${apcupsd::scriptdir}commok",
+    content => template('apcupsd/commok.erb'),
+    require => Package['apcupsd'],
+  }
+
+  file { 'offbattery':
+    path    => "${apcupsd::scriptdir}offbattery",
+    content => template('apcupsd/offbattery.erb'),
+    require => Package['apcupsd'],
+  }
+
+  file { 'onbattery':
+    path    => "${apcupsd::scriptdir}onbattery",
+    content => template('apcupsd/onbattery.erb'),
+    require => Package['apcupsd'],
   }
 
   # Start service

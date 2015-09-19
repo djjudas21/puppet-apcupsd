@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# This shell script if placed in /etc/apcupsd
+# will be called by /etc/apcupsd/apccontrol when apcupsd
+# loses contact with the UPS (i.e. the serial connection is not responding).
+# We send an email message to root to notify him.
+#
+SYSADMIN=<%= @maildest %>
+APCUPSD_MAIL="mail"
+
+HOSTNAME=`hostname`
+MSG="$HOSTNAME Communications with UPS lost"
+#
+(
+   echo "Subject: $MSG"
+   echo " "
+   echo "$MSG"
+) | $APCUPSD_MAIL -s "$MSG" $SYSADMIN
+exit 0
