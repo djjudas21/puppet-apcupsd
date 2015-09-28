@@ -86,3 +86,7 @@ If you can contribute to improve this module, please send a pull request.
 ### `0.1.0`
 
 Initial release, with support for a single UPS on a single system.
+
+### `0.2.0`
+
+Added support for setting mail destination address for events scripts.

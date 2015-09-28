@@ -1,6 +1,6 @@
 {
   "name": "jgazeley-apcupsd",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "jgazeley",
   "summary": "Configure apcupsd software for APC UPS devices",
   "license": "Apache 2.0",
