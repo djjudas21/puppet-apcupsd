@@ -22,4 +22,13 @@ class apcupsd::params {
     default  => '/etc/apcupsd/apcupsd.conf',
   }
 
+  # Script directory
+  $scriptdir = $::osfamily ? {
+    'RedHat' => '/etc/apcupsd/',
+    'Debian' => '/etc/apcupsd/',
+    default  => '/etc/apcupsd/',
+  }
+
+  $maildest = 'root'
+
 }
