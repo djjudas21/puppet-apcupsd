@@ -22,6 +22,18 @@ class apcupsd::params {
     default  => '/etc/apcupsd/apcupsd.conf',
   }
 
+  # Defaults file
+  $defaults = $::osfamily ? {
+    'Debian' => '/etc/default/apcupsd',
+    default  => undef,
+  }
+
+  $apcaccess_executable = $::osfamily ? {
+    'Debian' => '/sbin/apcaccess',
+    'RedHat' => '/usr/sbin/apcaccess',
+    default  => '/usr/sbin/apcaccess',
+  }
+
   # Script directory
   $scriptdir = $::osfamily ? {
     'RedHat' => '/etc/apcupsd/',

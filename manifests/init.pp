@@ -119,6 +119,15 @@ class apcupsd (
     require => Package['apcupsd'],
   }
 
+  if $apcupsd::defaults {
+    file { 'default-apcupsd':
+      path    => $apcupsd::defaults,
+      content => template('apcupsd/default-apcupsd.erb'),
+      require => Package['apcupsd'],
+      notify  => Service['apcupsd'],
+    }
+  }
+
   # Start service
   service { 'apcupsd':
     ensure  => running,
