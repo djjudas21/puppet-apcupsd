@@ -90,3 +90,7 @@ Initial release, with support for a single UPS on a single system.
 ### `0.2.0`
 
 Added support for setting mail destination address for events scripts.
+
+### `0.2.1`
+
+Add defaults file for Debian, as service fails to run without ISCONFIGURED=yes in this file (thanks @legooolas)
