@@ -44,6 +44,8 @@ class apcupsd (
   $batterylevel   = 5,
   $minutes        = 3,
   $netserver      = 'on',
+  $nisip          = '0.0.0.0',
+  $nisport        = 3551,
   $maildest       = $apcupsd::params::maildest,
 ) inherits apcupsd::params {
 
