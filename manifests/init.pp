@@ -36,43 +36,16 @@
 # Copyright 2015 Your name here, unless otherwise noted.
 #
 class apcupsd (
-  $upsname,
-  $upscable       = 'usb',
-  $upstype        = 'usb',
-  $device         = undef,
-  $onbatterydelay = 6,
-  $batterylevel   = 5,
-  $minutes        = 3,
-  $netserver      = 'on',
-  $maildest       = $apcupsd::params::maildest,
+  String[1,8] $upsname,
+  Enum['simple','smart','ether','usb'] $upscable              = 'usb',
+  Enum['apcsmart','usb','net','snmp','dumb','pcnet'] $upstype = 'usb',
+  String $device                                              = '',
+  Integer $onbatterydelay                                     = 6,
+  Integer $batterylevel                                       = 5,
+  Integer $minutes                                            = 3,
+  Enum['on','off'] $netserver                                 = 'on',
+  String $maildest                                            = $apcupsd::params::maildest,
 ) inherits apcupsd::params {
-
-  # Validate inputs
-  validate_slength($upsname, 8)
-
-  unless $upscable in ['simple', 'smart', 'ether', 'usb'] {
-    fail('$upscable must be one of simple, smart, ether, usb')
-  }
-
-  unless $upstype in ['apcsmart', 'usb', 'net', 'snmp', 'dumb', 'pcnet'] {
-    fail('$upstype must be one of apcsmart, usb, net, snmp, dumb, pcnet')
-  }
-
-  unless is_integer($onbatterydelay) {
-    fail('$onbatterydelay must be an integer')
-  }
-
-  unless is_integer($batterylevel) {
-    fail('$batterylevel must be an integer')
-  }
-
-  unless is_integer($minutes) {
-    fail('$minutes must be an integer')
-  }
-
-  unless $netserver in ['on', 'off'] {
-    fail('$netserver must be one of on, off')
-  }
 
   # Install package
   package { 'apcupsd':

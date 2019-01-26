@@ -33,7 +33,7 @@ Define the type of UPS you have. Choose from `apcsmart`, `usb`, `net`, `snmp`,
 
 For USB UPSes, leave `$device` blank. For other UPS types, you must specify an
 appropriate port or address. Consult the table for example values for `$device`.
-Default: `undef`.
+Default: `''`.
 
 `$upstype` | `$device`
 -----------|-----------
