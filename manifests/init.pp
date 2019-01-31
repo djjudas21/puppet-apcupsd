@@ -44,6 +44,8 @@ class apcupsd (
   Integer $batterylevel                                       = 5,
   Integer $minutes                                            = 3,
   Enum['on','off'] $netserver                                 = 'on',
+  String $nisip                                                      = '0.0.0.0',
+  Integer $nisport                                                    = 3551,
   String $maildest                                            = $apcupsd::params::maildest,
 ) inherits apcupsd::params {
 

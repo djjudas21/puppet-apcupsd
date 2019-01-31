@@ -63,9 +63,17 @@ system shutdown. Default: `3`.
 
 ### `netserver`
 
-Enables the network information server. If netstatus is on, a network information
+Enables the network information server (`NIS`). If netstatus is on, a network information
 server process will be started for serving the STATUS and EVENT data over the
 network (used by CGI programs). Choose from: `on`, `off`. Default: `on`.
+
+### `nisip`
+
+IP address on which NIS server will listen for incoming connections. Default: `0.0.0.0`.
+
+### `nisport`
+
+Port on which NIS server will listen for incoming connectionss. Default: `3551`.
 
 ## Limitations
 
