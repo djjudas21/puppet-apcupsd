@@ -107,3 +107,7 @@ Add defaults file for Debian, as service fails to run without ISCONFIGURED=yes i
 
 * Add parameters to configure nis server (thanks @XnS)
 * Add modern puppet support (thanks @vchepkov)
+
+### `1.0.1`
+
+* Fix metadata so it builds
