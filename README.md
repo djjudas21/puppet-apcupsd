@@ -102,3 +102,8 @@ Added support for setting mail destination address for events scripts.
 ### `0.2.1`
 
 Add defaults file for Debian, as service fails to run without ISCONFIGURED=yes in this file (thanks @legooolas)
+
+### `1.0.0`
+
+* Add parameters to configure nis server (thanks @XnS)
+* Add modern puppet support (thanks @vchepkov)

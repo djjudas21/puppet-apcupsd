@@ -1,6 +1,6 @@
 {
   "name": "jgazeley-apcupsd",
-  "version": "1.0.0-rc",
+  "version": "1.0.0",
   "author": "jgazeley",
   "summary": "Configure apcupsd software for APC UPS devices",
   "license": "Apache-2.0",
@@ -19,7 +19,9 @@
     {
       "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "14.10"
+        "14.10",
+        "16.04",
+        "18.04"
       ]
     },
     {
