@@ -15,6 +15,20 @@ class apcupsd::params {
     default  => 'apcupsd',
   }
 
+  # Service ensure
+  $service_ensure = $facts['osfamily'] ? {
+    'RedHat' => 'running',
+    'Debian' => 'running',
+    default  => 'running',
+  }
+
+  # Service enable
+  $service_enable = $facts['osfamily'] ? {
+    'RedHat' => true,
+    'Debian' => true,
+    default  => true,
+  }
+
   # Config file
   $config = $facts['osfamily'] ? {
     'RedHat' => '/etc/apcupsd/apcupsd.conf',

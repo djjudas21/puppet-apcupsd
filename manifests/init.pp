@@ -47,6 +47,8 @@ class apcupsd (
   String $nisip                                                      = '0.0.0.0',
   Integer $nisport                                                    = 3551,
   String $maildest                                            = $apcupsd::params::maildest,
+  Enum['stopped','false','running','true'] $service_ensure    = $apcupsd::params::service_ensure,
+  Enum['true','false','manual','mask'] $service_enable        = $apcupsd::params::service_enable,
 ) inherits apcupsd::params {
 
   # Install package
@@ -105,8 +107,8 @@ class apcupsd (
 
   # Start service
   service { 'apcupsd':
-    ensure  => running,
-    enable  => true,
+    ensure  => $service_ensure,
+    enable  => $service_enable,
     name    => $apcupsd::service,
     require => Package['apcupsd'],
   }
