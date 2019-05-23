@@ -91,6 +91,10 @@ If you can contribute to improve this module, please send a pull request.
 
 ## Release Notes
 
+### `1.1.0`
+
+Added support to enable/disable service. Thanks @upaternostro
+
 ### `0.1.0`
 
 Initial release, with support for a single UPS on a single system.
