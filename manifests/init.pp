@@ -37,18 +37,18 @@
 #
 class apcupsd (
   String[1,8] $upsname,
-  Enum['simple','smart','ether','usb'] $upscable              = 'usb',
+  Enum['simple','smart','ether','usb'] $upscable = 'usb',
   Enum['apcsmart','usb','net','snmp','dumb','pcnet'] $upstype = 'usb',
-  String $device                                              = '',
-  Integer $onbatterydelay                                     = 6,
-  Integer $batterylevel                                       = 5,
-  Integer $minutes                                            = 3,
-  Enum['on','off'] $netserver                                 = 'on',
-  String $nisip                                                      = '0.0.0.0',
-  Integer $nisport                                                    = 3551,
-  String $maildest                                            = $apcupsd::params::maildest,
-  Enum['stopped','false','running','true'] $service_ensure    = $apcupsd::params::service_ensure,
-  Enum['true','false','manual','mask'] $service_enable        = $apcupsd::params::service_enable,
+  String $device = '',
+  Integer $onbatterydelay = 6,
+  Integer $batterylevel = 5,
+  Integer $minutes = 3,
+  Enum['on','off'] $netserver = 'on',
+  String $nisip = '0.0.0.0',
+  Integer $nisport = 3551,
+  String $maildest = $apcupsd::params::maildest,
+  Variant[Boolean, Enum['stopped','false','running','true']] $service_ensure = $apcupsd::params::service_ensure,
+  Variant[Boolean, Enum['true','false','manual','mask']] $service_enable = $apcupsd::params::service_enable,
 ) inherits apcupsd::params {
 
   # Install package
