@@ -24,9 +24,9 @@ class apcupsd::params {
 
   # Service enable
   $service_enable = $facts['osfamily'] ? {
-    'RedHat' => true,
-    'Debian' => true,
-    default  => true,
+    'RedHat' => 'true',
+    'Debian' => 'true',
+    default  => 'true',
   }
 
   # Config file
