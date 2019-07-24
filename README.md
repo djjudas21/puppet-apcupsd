@@ -91,6 +91,10 @@ If you can contribute to improve this module, please send a pull request.
 
 ## Release Notes
 
+### `1.1.1`
+
+Bugfix for data typing in `1.1.0`
+
 ### `1.1.0`
 
 Added support to enable/disable service. Thanks @upaternostro
