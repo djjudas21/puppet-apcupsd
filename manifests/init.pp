@@ -1,30 +1,15 @@
 # == Class: apcupsd
 #
-# Full description of class apcupsd here.
+# Configure apcupsd software for APC UPS devices
 #
 # === Parameters
 #
 # Document parameters here.
 #
-# [*sample_parameter*]
-#   Explanation of what this parameter affects and what it defaults to.
-#   e.g. "Specify one or more upstream ntp servers as an array."
-#
-# === Variables
-#
-# Here you should define a list of variables that this module would require.
-#
-# [*sample_variable*]
-#   Explanation of how this variable affects the funtion of this class and if
-#   it has a default. e.g. "The parameter enc_ntp_servers must be set by the
-#   External Node Classifier as a comma separated list of hostnames." (Note,
-#   global variables should be avoided in favor of class parameters as
-#   of Puppet 2.6.)
-#
 # === Examples
 #
 #  class { apcupsd:
-#    servers => [ 'pool.ntp.org', 'ntp.local.company.com' ],
+#    upsname => 'BU1500',
 #  }
 #
 # === Authors
@@ -37,19 +22,25 @@
 #
 class apcupsd (
   String[1,8] $upsname,
-  Enum['simple','smart','ether','usb'] $upscable              = 'usb',
-  Enum['apcsmart','usb','net','snmp','dumb','pcnet'] $upstype = 'usb',
-  String $device                                              = '',
-  Integer $onbatterydelay                                     = 6,
-  Integer $batterylevel                                       = 5,
-  Integer $minutes                                            = 3,
-  Enum['on','off'] $netserver                                 = 'on',
-  String $nisip                                                      = '0.0.0.0',
-  Integer $nisport                                                    = 3551,
-  String $maildest                                            = $apcupsd::params::maildest,
-  Enum['stopped','false','running','true'] $service_ensure    = $apcupsd::params::service_ensure,
-  Enum['true','false','manual','mask'] $service_enable        = $apcupsd::params::service_enable,
-) inherits apcupsd::params {
+  String $package,
+  String $config,
+  String $scriptdir,
+  String $apcaccess_executable,
+  Optional[String] $defaults,
+  Enum['simple','smart','ether','usb'] $upscable,
+  Enum['apcsmart','usb','net','snmp','dumb','pcnet'] $upstype,
+  String $device,
+  Integer $onbatterydelay,
+  Integer $batterylevel,
+  Integer $minutes,
+  Enum['on','off'] $netserver,
+  String $nisip,
+  Integer $nisport,
+  String $maildest,
+  String $service,
+  Enum['stopped','false','running','true'] $service_ensure,
+  Enum['true','false','manual','mask'] $service_enable,
+) {
 
   # Install package
   package { 'apcupsd':
@@ -65,33 +56,33 @@ class apcupsd (
     notify  => Service['apcupsd'],
   }
 
-  # Template for scripts
+  # Templates for scripts
   file { 'changeme':
-    path    => "${apcupsd::scriptdir}changeme",
+    path    => "${apcupsd::scriptdir}/changeme",
     content => template('apcupsd/changeme.erb'),
     require => Package['apcupsd'],
   }
 
   file { 'commfailure':
-    path    => "${apcupsd::scriptdir}commfailure",
+    path    => "${apcupsd::scriptdir}/commfailure",
     content => template('apcupsd/commfailure.erb'),
     require => Package['apcupsd'],
   }
 
   file { 'commok':
-    path    => "${apcupsd::scriptdir}commok",
+    path    => "${apcupsd::scriptdir}/commok",
     content => template('apcupsd/commok.erb'),
     require => Package['apcupsd'],
   }
 
   file { 'offbattery':
-    path    => "${apcupsd::scriptdir}offbattery",
+    path    => "${apcupsd::scriptdir}/offbattery",
     content => template('apcupsd/offbattery.erb'),
     require => Package['apcupsd'],
   }
 
   file { 'onbattery':
-    path    => "${apcupsd::scriptdir}onbattery",
+    path    => "${apcupsd::scriptdir}/onbattery",
     content => template('apcupsd/onbattery.erb'),
     require => Package['apcupsd'],
   }
@@ -105,10 +96,10 @@ class apcupsd (
     }
   }
 
-  # Start service
+  # Service
   service { 'apcupsd':
-    ensure  => $service_ensure,
-    enable  => $service_enable,
+    ensure  => $apcupsd::service_ensure,
+    enable  => $apcupsd::service_enable,
     name    => $apcupsd::service,
     require => Package['apcupsd'],
   }

@@ -1,0 +1,19 @@
+---
+apcupsd::package: apcupsd
+apcupsd::config: /etc/apcupsd/apcupsd.conf 
+apcupsd::scriptdir: /etc/apcupsd
+apcupsd::apcaccess_executable: /usr/sbin/apcaccess
+apcupsd::defaults: ~
+apcupsd::upscable: usb
+apcupsd::upstype: usb
+apcupsd::device: ''
+apcupsd::onbatterydelay: 6
+apcupsd::batterylevel: 5
+apcupsd::minutes: 3
+apcupsd::netserver: 'on'
+apcupsd::nisip: '0.0.0.0'
+apcupsd::nisport: 3551
+apcupsd::maildest: root
+apcupsd::service: apcupsd
+apcupsd::service_ensure: running
+apcupsd::service_enable: 'true'
