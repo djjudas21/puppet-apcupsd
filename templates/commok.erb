@@ -16,6 +16,6 @@ MSG="$HOSTNAME Communications with UPS restored"
    echo " "
    echo "$MSG"
    echo " "
-   /sbin/apcaccess status
+   <%= @apcaccess_executable %> status
 ) | $APCUPSD_MAIL -s "$MSG" $SYSADMIN
 exit 0

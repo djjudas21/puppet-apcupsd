@@ -1,0 +1,3 @@
+---
+apcupsd::apcaccess_executable: /sbin/apcaccess
+apcupsd::defaults: /etc/default/apcupsd
