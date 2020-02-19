@@ -91,6 +91,10 @@ If you can contribute to improve this module, please send a pull request.
 
 ## Release Notes
 
+### `2.0.0`
+
+Refactor to use data in the module pattern
+
 ### `1.1.1`
 
 Bugfix for data typing in `1.1.0`
