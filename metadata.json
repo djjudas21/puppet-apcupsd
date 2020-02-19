@@ -7,6 +7,9 @@
   "source": "https://github.com/djjudas21/puppet-apcupsd",
   "project_page": "https://github.com/djjudas21/puppet-apcupsd",
   "issues_url": "https://github.com/djjudas21/puppet-apcupsd/issues",
+  "dependencies": [
+
+  ],
   "operatingsystem_support": [
     {
       "operatingsystem": "RedHat",
@@ -20,7 +23,7 @@
       "operatingsystemrelease": [
         "16.04",
         "18.04",
-	"19.10"
+        "19.10"
       ]
     },
     {
@@ -38,5 +41,7 @@
       "version_requirement": ">= 5.5.10 < 7.0.0"
     }
   ],
-  "dependencies": []
+  "pdk-version": "1.16.0",
+  "template-url": "pdk-default#1.16.0",
+  "template-ref": "tags/1.16.0-0-gaf44904"
 }
